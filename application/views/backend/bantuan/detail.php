@@ -50,7 +50,17 @@ function printContent(el){
 						<tr>
 							<td>Bantuan Jumlah</td>
 							<td>:</td>
-							<td>Rp. <?= nominal($bantuan['bantuan_jumlah']) ?> ,- / KK</td>
+							<td>
+							<?php if ($bantuan['bantuan_jenis']=='rumah'){ ?>
+								<?= $bantuan['bantuan_jumlah'] ?> Unit
+								
+							<?php }elseif ($bantuan['bantuan_jenis']=='uang') {?>
+
+								Rp. <?= nominal($bantuan['bantuan_jumlah']) ?> ,- / KK</td>
+
+							<?php }else{ ?>
+								<?= $bantuan['bantuan_jumlah'] ?> Kg
+							<?php } ?>
 						</tr>
 						<tr>
 							<td>Bantuan Periode</td>

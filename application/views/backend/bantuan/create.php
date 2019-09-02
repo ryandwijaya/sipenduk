@@ -43,6 +43,7 @@
 								<option disabled selected>-Pilih Jenis Bantuan-</option>
 								<option value="beras">Beras</option>
 								<option value="uang">Uang</option>
+								<option value="rumah">Rumah Layak Huni</option>
 	                      </select>
 	                    </div>
 					</div>
@@ -128,9 +129,10 @@ $(document).ready(function(){
 			method: 'post',
 			success : function(response){
 				console.log(response);
+				if (jenis == 'rumah') {
 
 				for (var i = 0; i < response.length; i++) {
-						opt+='<option value="'+response[i].kk_id+'">No. KK ['+response[i].kk_no+'] | Nama Kepala : '+response[i].kk_kepala+' | Penghasilan : '+  response[i].kk_penghasilan+' /bulan </option>';
+						opt+='<option value="'+response[i].kk_id+'">No. KK ['+response[i].kk_no+'] | Nama Kepala : '+response[i].kk_kepala+' | Penghasilan : '+  response[i].kk_penghasilan+' /bln ( '+ response[i].pengajuan_keterangan +' ) </option>';
 				}
 				for (var i = 0; i < lengh ; i++) {
 					html+='<select class="form-control select2 mt-2" name="penerima'+i+'">'
@@ -139,6 +141,24 @@ $(document).ready(function(){
 					html+='</select>';
 					
 				}
+
+				}else if(jenis == 'uang'){
+
+				for (var i = 0; i < response.length; i++) {
+						opt+='<option value="'+response[i].kk_id+'">No. KK ['+response[i].kk_no+'] | Nama Kepala : '+response[i].kk_kepala+' | Penghasilan : '+  response[i].kk_penghasilan+' /bln ( '+ response[i].pengajuan_keterangan +' ) </option>';
+				}
+				for (var i = 0; i < lengh ; i++) {
+					html+='<select class="form-control select2 mt-2" name="penerima'+i+'">'
+					html+='<option disabled selected>-Pilih KK-</option>'
+					html+=opt;
+					html+='</select>';
+					
+				}
+
+				}else{
+
+				}
+				
 				console.log(html);
 				$('#penerima').html(html);
 

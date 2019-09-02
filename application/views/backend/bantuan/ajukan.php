@@ -46,6 +46,7 @@
 								<option disabled selected>-Pilih Jenis Bantuan-</option>
 								<option value="beras">Beras</option>
 								<option value="uang">Uang</option>
+								<option value="rumah">Rumah Layak Huni</option>
 	                      </select>
 	                    </div>
 					</div>

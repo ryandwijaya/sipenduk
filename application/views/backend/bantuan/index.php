@@ -48,7 +48,10 @@
 						<td>Rp. <?= nominal($val['bantuan_jumlah']) ?> ,-</td>
 
 						<?php }elseif ($val['bantuan_jenis']=='beras') { ?>
-						<td><?= nominal($val['bantuan_jumlah']) ?> Kg</td>
+						<td><?= $val['bantuan_jumlah'] ?> Kg</td>
+						<?php }else{ ?>
+						<td><?= $val['bantuan_jumlah'] ?> Unit</td>
+
 						<?php } ?>
 						<td><?= $val['bantuan_keterangan'] ?></td>
 						<td><?= $val['bantuan_periode'] ?></td>
